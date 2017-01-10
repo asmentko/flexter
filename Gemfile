@@ -43,6 +43,9 @@ gem 'carrierwave', '~> 1.0'
 gem 'figaro'
 
 gem 'fog'
+
+gem 'mini_magick', '~> 4.3.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
