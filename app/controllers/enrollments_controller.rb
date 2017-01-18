@@ -14,7 +14,7 @@ class EnrollmentsController < ApplicationController
       charge = Stripe::Charge.create(
         :customer    => customer.id,
         :amount      => @amount,
-        :description => 'Granster Paid Course Content',
+        :description => 'Grantster Paid Course Content',
         :currency    => 'usd'
       )
     end
