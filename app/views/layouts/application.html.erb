@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Grantster</title>
+  <title>Grant Camp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'Grantster', root_path, class: 'navbar-brand' %>
+          <%= link_to 'Grant Camp', root_path, class: 'navbar-brand' %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,16 +58,53 @@
   <%= yield %>
 
 </div>
+</body>
 
 <br class="clr" />
 
+
+
+
+
 <div id="footer">
   <div class="container">
-    <b>Teachers</b>
-    <br />
-    <%= link_to 'Teach a Course', new_instructor_course_path %>
+    <div class="col-xs-12 col-sm-3">
+      <b>Teachers</b>
+      <br />
+      <%= link_to 'Teach a Course', new_instructor_course_path %>
+      <br />
+      <%= link_to 'My Dashboard', dashboard_path %>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <b>About</b>
+      <br />
+      <%= link_to 'Team', '#' %>
+      <br />
+      <%= link_to 'Careers', 'x' %>
+      <br />
+      <%= link_to 'Privacy Policy', '#' %>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <b>Contact</b>
+      <br />
+      asmentko@gmail.com
+      <br />
+      Detroit, MI
+    </div>
+    <div class="col-xs-12 col-sm-3 social">
+      <b>Social</b>
+      <br />
+      <%= link_to 'https://github.com/asmentko' do %>
+        <%= image_tag 'github.png', class: 'social-button' %>
+      <% end %>
+      <%= link_to 'https://www.facebook.com/asmentko' do %>  
+        <%= image_tag 'facebook.png', class: 'social-button' %>
+      <% end %>
+      <%= link_to 'https://twitter.com/asmentkode' do %>
+        <%= image_tag 'twitter.png', class: 'social-button' %>
+      <% end %>
+    </div>
   </div>
 </div>
 
-</body>
 </html>
