@@ -4,7 +4,6 @@
       var lessonUrl = $(event.target).data('lesson-url');
       $('#newLessonForm').attr('action', lessonUrl);
     });
-
     $('.lessons').sortable({
       update: function( event, ui) {
         $.ajax({
@@ -15,7 +14,6 @@
         });
       }
     });
-
     $('.sections').sortable({
       update: function( event, ui ) {
         $.ajax({
@@ -26,7 +24,6 @@
         });
       }
     });
-
   });
 </script>
 
@@ -44,6 +41,11 @@
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newSectionModal">
       New Section...
     </button>
+    <!-- Begin changes for course editing functionality -->
+    <%= link_to 'Edit Course', edit_instructor_course_path(current_course), class: 'btn btn-info btn-lg' %>
+    <!-- End changes for course editing functionality -->
+
+
   </div>
 
   <ul class="sections">
@@ -75,10 +77,20 @@
               <p>
                 <%= lesson.subtitle %>
               </p>
+              <!-- Begin changes for lesson editing functionality -->
+              <div class="pull-right">
+                <%= link_to 'Edit Lesson', edit_instructor_lesson_path(lesson), class: 'btn btn-info btn-sm' %>
+              </div>
+              <!-- End changes for lesson editing functionality -->
             </div>
             <br class="clr" />
             </li>
           <% end %>
+          <!-- Begin changes for secion editing functionality -->
+          <div class="pull-right">
+            <%= link_to 'Edit Section', edit_instructor_section_path(section), class: 'btn btn-info btn-sm' %>
+          </div>
+          <!-- End changes for section editing functionality -->
         </ul>
         <br class="clr" />
       </li>

@@ -5,13 +5,41 @@ class Instructor::LessonsController < ApplicationController
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
-    redirect_to instructor_course_path(current_section.course)
+    course = @lesson.section.course
+    redirect_to instructor_course_path(course)
   end
 
-  def update
-    current_lesson.update_attributes(lesson_params)
-    render text: 'updated!'
+  # begin edit addition
+  def edit
+    @lesson = Lesson.find(params[:id])
   end
+  # end addition
+
+  # begin destroy addition
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    course = @lesson.section.course
+    @lesson.destroy
+    redirect_to instructor_course_path(course)
+  end
+
+  # beginning of revised update
+  def update
+    @lesson = Lesson.find(params[:id])
+    @lesson.update_attributes(lesson_params)
+    course = @lesson.section.course
+    redirect_to instructor_course_path(course)
+  end
+  # end of revised update - needs to redirect to instructor_course_path
+
+
+# def update before I started trying to add editing funcitonality to it
+  # def update
+  #   current_lesson.update_attributes(lesson_params)
+  #   render text: 'updated!'
+  # end
+  # added for editing
+
 
   private
 

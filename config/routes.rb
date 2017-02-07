@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show]
   resources :lessons, only: [:show]
   namespace :instructor do
-    resources :lessons, only: [:update]
-    resources :sections, only: [:update]
+    resources :courses, only: [:update, :destroy, :edit] # second attempt at adding edit to courses, added entire line
+    resources :lessons, only: [:update, :destroy, :edit] # second attempt at adding edit here for lessons
+    resources :sections, only: [:update, :destroy, :edit] # second attempt at adding edit here for sections
     resources :sections, only: [] do
-      resources :lessons, only: [:create]
+      resources :lessons, only: [:create] # first tried adding edit here for lessons
     end
-    resources :courses, only: [:new, :create, :show] do
-      resources :sections, only: [:create]
+    resources :courses, only: [:new, :create, :show] do # first tried adding edit, update, destroy here for courses
+      resources :sections, only: [:create] #first tried adding edit here for sections
     end
   end
 end

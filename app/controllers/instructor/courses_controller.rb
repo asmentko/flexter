@@ -15,6 +15,22 @@ class Instructor::CoursesController < ApplicationController
     end
   end
 
+  def edit
+    @course = Course.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    @course.update_attributes(course_params)
+    redirect_to instructor_course_path(current_course)
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to dashboard_path
+  end
+
   def show
     @section = Section.new
     @lesson = Lesson.new

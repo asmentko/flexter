@@ -8,9 +8,21 @@ class Instructor::SectionsController < ApplicationController
     redirect_to instructor_course_path(current_course)
   end
 
+  def edit
+    @section = Section.find(params[:id])
+  end
+
   def update
-    current_section.update_attributes(section_params)
-    render text: 'updated!'
+    @section = Section.find(params[:id])
+    @section.update_attributes(section_params)
+    redirect_to instructor_course_path(current_course)
+  end
+
+  def destroy
+    @section = current_section
+    @section.destroy
+    course = @section.course
+    redirect_to instructor_course_path(course)
   end
 
   private

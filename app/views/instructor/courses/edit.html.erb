@@ -1,0 +1,16 @@
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <%= simple_form_for @course, url: instructor_course_path(@course) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :cost %>
+    <%= f.input :image %>
+
+    <%= f.submit "Update", class: 'btn btn-default btn-sm' %>
+
+  <!-- begin additions for delete functionality to lessons -->
+    <div class="pull-right">
+      <%= link_to 'Delete Course', instructor_course_path(@course), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger btn-sm' %>
+    </div>
+  <!-- end additions for deleting functionality to lessons -->
+  <% end %>
+</div>
